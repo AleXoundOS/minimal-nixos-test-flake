@@ -7,11 +7,11 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      checks.${system}.build-test =
+      checks.${system}.dummy-test =
         pkgs.testers.runNixOSTest {
           imports = [{
             name = "dummy-test";
-            nodes.build_machine = { pkgs, ... }: {
+            nodes.machine = { pkgs, ... }: {
               imports = [{
                 documentation.enable = false;
               }];
